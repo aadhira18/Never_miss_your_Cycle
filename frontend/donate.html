@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Donate - Never Miss Your Cycle</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .impact-message {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffe6ec;
+      padding: 20px;
+      border-radius: 10px;
+      color: #5a2c3f;
+      font-size: 16px;
+      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    form {
+      background: #fff;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #cc3366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a82b55;
+    }
+
+    .sponsor-option {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    .sponsor-option input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .thank-you-message {
+      display: none;
+      background-color: #e6ffe6;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      text-align: center;
+      color: #2e7d32;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Reuse your website's header -->
+  <header>
+    <div class="logo-container">
+      <img src="/image/logo.jpg" alt="Logo" class="corner-logo" />
+      <div class="site-name">Never Miss Your Cycle</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="why-support-us.html">Why Support Us</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="learn-with-us.html">Learn With Us</a></li>
+        <li><a href="know-us-better.html">Know Us Better</a></li>
+      </ul>
+    </nav>
+    <div class="search-donate">
+      <input type="text" placeholder="Search for anything" />
+      <button class="donate-btn">Donate Now</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 style="text-align:center; color:#cc3366;">Support Our Mission ❤️</h1>
+
+    <div class="impact-message">
+      <p><strong>Never Miss Your Cycle</strong> is more than a period tracker — it's a movement to help girls across rural and underprivileged areas stay safe and informed during their menstrual cycles.</p>
+      <p>Your donation helps us provide hygienic pads, awareness sessions, and even supports the education of young girls who skip school due to lack of resources.</p>
+      <p>You can even choose to sponsor a girl's period health — and gift her the dignity and care she deserves every month.</p>
+    </div>
+
+    <form id="donationForm">
+      <input type="text" placeholder="Your Full Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="number" placeholder="Donation Amount (₹)" required />
+
+      <label for="reason">Why would you like to donate?</label>
+      <select id="reason" required>
+        <option value="">-- Choose a reason --</option>
+        <option value="hygiene-kits">Provide Hygiene Kits</option>
+        <option value="education">Support Menstrual Education</option>
+        <option value="awareness">Fund Awareness Campaigns</option>
+        <option value="sponsor">Sponsor One Girl’s Period Health</option>
+      </select>
+
+      <div class="sponsor-option">
+        <input type="checkbox" id="sponsor-girl" />
+        <label for="sponsor-girl">I want to sponsor one girl's period health as a gift ❤️</label>
+      </div>
+
+      <textarea placeholder="Write a message or encouragement (optional)" rows="4"></textarea>
+
+      <button type="submit">Donate Now</button>
+    </form>
+
+    <div class="thank-you-message" id="thankYouMessage">
+      🎉 Thank you for supporting girls’ health and dignity! Your contribution truly makes a difference. 💖
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Never Miss Your Cycle. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("donationForm");
+    const thankYouMessage = document.getElementById("thankYouMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      thankYouMessage.style.display = "block";
+    });
+  </script>
+</body>
+</html>

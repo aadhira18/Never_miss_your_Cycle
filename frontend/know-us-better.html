@@ -5,11 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Know Us Better - Never Miss Your Cycle</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #fff8f9;
+      color: #333;
+    }
+
+    .content-section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .highlight {
+      background-color: #ffe4e1;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .team-member {
+      background: #fff0f5;
+      border-radius: 15px;
+      padding: 1rem;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      background: #fef2f2;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form button {
+      background-color: #e75480;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #d43f6e;
+    }
+
+    h1, h2, h3 {
+      color: #c71585;
+    }
+
+    .youtube-section {
+      margin-top: 3rem;
+      background-color: #fff0f5;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #e91e63;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="public/image/logo.jpg" alt="Logo" class="corner-logo" />
+      <img src="/image/logo.jpg" alt="Logo" class="corner-logo" />
       <div class="site-name">Never Miss Your Cycle</div>
     </div>
     <nav>
@@ -20,7 +129,7 @@
         <li><a href="why-support-us.html">Why Support Us</a></li>
         <li><a href="get-involved.html">Get Involved</a></li>
         <li><a href="learn-with-us.html">Learn With Us</a></li>
-        <li><a href="know-us-better.html">Know Us Better</a></li>
+        <li><a href="know-us-better.html" class="active">Know Us Better</a></li>
       </ul>
     </nav>
   </header>
@@ -28,19 +137,73 @@
   <main>
     <section class="content-section">
       <h1>Know Us Better</h1>
-      <p>
-        We are a team of passionate individuals committed to menstrual health awareness, tech-driven support, and community impact.
-      </p>
-      <h3>Our Vision</h3>
-      <p>To create a world where no girl misses out because of her cycle.</p>
+      <div class="highlight">
+        <p>
+          At <strong>Never Miss Your Cycle</strong>, we’re here to make menstruation a smoother, more supported part of life — through tech, information, and heart.
+        </p>
+      </div>
 
-      <h3>Our Team</h3>
+      <h3>Our Vision</h3>
       <p>
-        Developers, designers, educators, and volunteers – all driven by one mission: empowering menstrual well-being.
+        A world where girls are never held back because of their period. We aim to break taboos, educate communities, and provide the tools that empower you to take control of your cycle.
       </p>
+
+      <h3>Meet Our Team</h3>
+      <div class="team-container">
+        <div class="team-member">
+          <img src="/image/mem1.jpg" alt="Team Member 1">
+          <h4>AADHIRA RANJAN</h4>
+          <p> CEO </p>
+        </div>
+        <div class="team-member">
+          <img src="/image/team2.jpg" alt="Team Member 2">
+          <h4>SHREYA </h4>
+          <p>CEO</p>
+        </div>
+        <div class="team-member">
+          <img src="/image/team3.jpg" alt="Team Member 3">
+          <h4>AKANSHA</h4>
+          <p>CEO</p>
+        </div>
+        <div class="team-member">
+          <img src="/image/mem4.jpg" alt="Team Member 4">
+          <h4>ANUSHKA</h4>
+          <p>CEO</p>
+        </div>
+      </div>
+
+      <h3>Educational Awareness</h3>
+      <p>
+        Here are some trusted YouTube resources we love for learning more about menstrual health:
+      </p>
+      <div class="youtube-section">
+        <strong>Watch & Learn:</strong>
+        <iframe src="https://www.youtube.com/embed/8MvuetYyLPs" allowfullscreen></iframe>
+        <p>More videos at <a href="https://www.youtube.com/@xyzchannel" target="_blank">@xyzchannel</a></p>
+      </div>
 
       <h3>Contact Us</h3>
-      <p>Email: support@nevermissyourcycle.org</p>
+      <div class="contact-form">
+        <form action="#" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="social-links">
+        <h3>Connect with us on social media:</h3>
+        <a href="https://instagram.com/nevermissyourcycle" target="_blank">Instagram: @nevermissyourcycle</a> |
+        <a href="https://twitter.com/nevermissxyz" target="_blank">Twitter: @nevermissxyz</a> |
+        <a href="https://youtube.com/@xyzchannel" target="_blank">YouTube: @xyzchannel</a>
+      </div>
     </section>
   </main>
 

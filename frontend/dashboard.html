@@ -1,0 +1,38 @@
+<!-- frontend/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/frontend/Style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome, <span id="usernameDisplay"></span>!</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <main>
+    <section id="userDataSection"></section>
+
+    <section id="firstTimeFormSection" style="display: none;">
+      <h2>Let’s Get Started With Your Cycle Info</h2>
+      <form id="userDataForm">
+        <label>Cycle Length (days): <input type="number" name="cycleLength" required /></label><br />
+        <label>Last Period Date: <input type="date" name="lastPeriodDate" required /></label><br />
+        <label>Mood:
+          <select name="mood">
+            <option>Happy</option>
+            <option>Irritated</option>
+            <option>Emotional</option>
+            <option>Normal</option>
+          </select>
+        </label><br />
+        <button type="submit">Save</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/frontend/dashboard.js"></script>
+</body>
+</html>

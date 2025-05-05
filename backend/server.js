@@ -18,9 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/your-db')
+mongoose.connect('mongodb://localhost:27017/periodTrackerDB')
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
+
 
 // ✅ Static Frontend Files
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -47,7 +48,7 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dashboard.html'));
 });
 
-// ✅ Dynamic Pages
+// ✅ Dynamic Pages Handler
 app.get('/:page', (req, res) => {
   const page = req.params.page;
   const filePath = path.join(__dirname, `../frontend/${page}.html`);

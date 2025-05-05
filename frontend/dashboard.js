@@ -1,4 +1,4 @@
-// frontend/dashboard.js
+cd// frontend/dashboard.js
 
 document.addEventListener('DOMContentLoaded', async () => {
     const username = localStorage.getItem('username');

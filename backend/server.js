@@ -2,12 +2,12 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const authRoutes = require('./routes/authRoutes');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-const authRoutes = require('./routes/authRoutes');
 const donateRoutes = require('./routes/donateRoutes');
 const userDataRoutes = require('./routes/userDataRoutes');
+const periodsRoutes = require('./routes/periodRoutes')
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -37,6 +37,7 @@ app.use('/script', express.static(path.join(__dirname, '../frontend')));
 app.use('/api/auth', authRoutes);
 app.use('/api/donate', donateRoutes);
 app.use('/api/userdata', userDataRoutes);
+app.use('/api/periods', periodsRoutes);
 
 // ✅ Home Page
 app.get('/', (req, res) => {

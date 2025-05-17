@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Dashboard | Never Miss Your Cycle</title>
   <link rel="stylesheet" href="Style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     body {
       background-color: #fff0f5;
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
@@ -20,15 +24,52 @@
       background-color: #ff4d6d;
       padding: 1rem 2rem;
       color: white;
-    }
-
-    header img {
-      height: 60px;
+      position: relative;
     }
 
     .title {
       font-size: 1.8rem;
       font-weight: bold;
+    }
+
+    header img.logo {
+      height: 60px;
+    }
+
+    .user-profile {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .user-profile img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown a:hover {
+      background-color: #ffe6ec;
     }
 
     .intro {
@@ -45,6 +86,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+      flex-grow: 1;
     }
 
     .feature {
@@ -81,96 +123,98 @@
       background-color: #e6005c;
     }
 
-    .team-section {
-      background-color: #fcdde8;
-      text-align: center;
-      padding: 3rem 1rem;
-      margin-top: 3rem;
-    }
-
-    .team-section h2 {
-      color: #e6005c;
-      margin-bottom: 2rem;
-    }
-
-    .team-members {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .member {
-      background: white;
+    footer {
+      background-color: #ff4d6d;
+      color: white;
       padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      width: 200px;
+      text-align: center;
     }
 
-    .member h4 {
-      margin-top: 1rem;
-      color: #e6005c;
+    .social-links {
+      margin-bottom: 0.5rem;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd6e3;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header with logo -->
+  <!-- Header -->
   <header>
-    <div class="title">Never Miss Your Cycle</div>
-    <img src="public/image/logo.jpg" alt="Logo">
+    <div class="title">
+      <img src="/image/logo.jpg" class="logo" alt="Logo">
+      Never Miss Your Cycle
+    </div>
+    
+    <div class="user-profile" onclick="toggleDropdown()">
+      <img src="/image/user.jpg" alt="User Photo">
+      <div id="dropdownMenu" class="dropdown">
+        <a href="profile.html">Profile</a>
+        <a href="settings.html">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Intro text -->
+  <!-- Intro -->
   <div class="intro">
     Welcome to your personalized dashboard. Take charge of your health with tools to manage your cycle, diet, mood, and more!
   </div>
 
-  <!-- Dashboard Buttons with Images -->
+  <!-- Dashboard Features -->
   <div class="dashboard">
-
     <div class="feature">
-      <img src="public/image/features/ovalution.jpg" alt="Ovulation">
-      <a href="ovalution.html"><button>Track Ovulation</button></a>
+      <img src="/image/o.jpg" alt="Ovulation">
+      <a href="periodtracker.html"><button>Ovulation and Period Track</button></a>
     </div>
-
     <div class="feature">
-      <img src="public/image/features/mood.jpg" alt="Mood">
-      <a href="mood-tracker.html"><button>Mood Tracker</button></a>
+      <img src="/image/m.jpg" alt="Stress Management">
+      <a href="mood-tracker.html"><button>Stress Management</button></a>
     </div>
-
     <div class="feature">
-      <img src="public/image/features/diet.jpg" alt="Diet">
+      <img src="/image/d.jpg" alt="Diet">
       <a href="diet-plan.html"><button>Diet Plan</button></a>
     </div>
-
     <div class="feature">
-      <img src="public/image/features/we happy.jpg" alt="Cycle Tracking">
+      <img src="/image/h.jpg" alt="Cycle Tracking">
       <a href="period-history.html"><button>Cycle History</button></a>
     </div>
-
   </div>
 
-  <!-- Team Section -->
-  <div class="team-section">
-    <h2>Meet Our Team</h2>
-    <div class="team-members">
-      <div class="member">
-        <h4>Aadhira Sharma</h4>
-        <p>Frontend Developer</p>
-      </div>
-      <div class="member">
-        <h4>Sneha Verma</h4>
-        <p>Backend Engineer</p>
-      </div>
-      <div class="member">
-        <h4>Riya Patel</h4>
-        <p>UI/UX Designer</p>
-      </div>
-      <!-- Add more members if needed -->
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
-  </div>
+    <p>© 2025 Never Miss Your Cycle. All rights reserved.</p>
+  </footer>
+
+  <!-- Dropdown JavaScript -->
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    window.addEventListener('click', function(e) {
+      const menu = document.getElementById('dropdownMenu');
+      if (!e.target.closest('.user-profile')) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>

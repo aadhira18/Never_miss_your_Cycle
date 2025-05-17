@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Period Tracker</title>
+  <link rel="stylesheet" href="Style.css" />
+  
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tracker-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .tracker-container h2 {
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+      color: #d81b60;
+      text-align: left;
+    }
+
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #f8bbd0;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d81b60;
+    }
+
+    #calendar {
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    #calendarView {
+      margin-top: 20px;
+    }
+
+    #history {
+      margin-top: 30px;
+      max-height: 200px;
+      overflow-y: auto;
+      text-align: left;
+      padding: 10px;
+      background-color: #f3e5f5;
+      border-radius: 10px;
+      border: 1px solid #e1bee7;
+    }
+
+    #history h3 {
+      color: #8e24aa;
+    }
+
+    .history-entry {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f8bbd0;
+      border-left: 5px solid #d81b60;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tracker-container">
+    <h2>Track Your Cycle</h2>
+    <form id="periodForm">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <label for="periodLength">Period Length (days):</label>
+      <input type="number" id="periodLength" min="1" max="10" required>
+
+      <label for="cycleLength">Cycle Length (days):</label>
+      <input type="number" id="cycleLength" min="21" max="35" required>
+
+      <button type="submit">Track Period & Ovulation</button>
+    </form>
+
+    <div id="calendar">
+      <h3>Upcoming Cycle Overview</h3>
+      <div id="calendarView"></div>
+    </div>
+
+    <div id="history">
+      <h3>Past Cycles</h3>
+      <div id="pastEntries"></div>
+    </div>
+  </div>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

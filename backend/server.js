@@ -29,6 +29,9 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 // ✅ Serve images from public/image/
 app.use('/image', express.static(path.join(__dirname, '../public/image')));
 
+// ✅ Serve CSS & JS from frontend
+app.use('/style', express.static(path.join(__dirname, '../frontend')));
+app.use('/script', express.static(path.join(__dirname, '../frontend')));
 
 // ✅ API Routes
 app.use('/api/auth', authRoutes);

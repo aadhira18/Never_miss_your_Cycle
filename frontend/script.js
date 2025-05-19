@@ -40,7 +40,7 @@ if (signupForm) {
       alert(data.message);
 
       if (res.ok) {
-        window.location.href = '/login.html';
+        window.location.href = '/dashboard.html';
       }
     } catch (err) {
       console.error('Signup Error:', err);

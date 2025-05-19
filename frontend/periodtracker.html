@@ -48,7 +48,7 @@
       font-size: 16px;
     }
 
-    button {
+    button, .nav-button {
       margin-top: 20px;
       background-color: #ec407a;
       color: white;
@@ -58,9 +58,11 @@
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
     }
 
-    button:hover {
+    button:hover, .nav-button:hover {
       background-color: #d81b60;
     }
 
@@ -74,27 +76,12 @@
       margin-top: 20px;
     }
 
-    #history {
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
       margin-top: 30px;
-      max-height: 200px;
-      overflow-y: auto;
-      text-align: left;
-      padding: 10px;
-      background-color: #f3e5f5;
-      border-radius: 10px;
-      border: 1px solid #e1bee7;
-    }
-
-    #history h3 {
-      color: #8e24aa;
-    }
-
-    .history-entry {
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #f8bbd0;
-      border-left: 5px solid #d81b60;
-      border-radius: 10px;
     }
   </style>
 </head>
@@ -119,9 +106,9 @@
       <div id="calendarView"></div>
     </div>
 
-    <div id="history">
-      <h3>Past Cycles</h3>
-      <div id="pastEntries"></div>
+    <div class="button-group">
+      <a href="calendar.html" class="nav-button">View Calendar</a>
+      <a href="dashboard.html" class="nav-button">Back to Dashboard</a>
     </div>
   </div>
 

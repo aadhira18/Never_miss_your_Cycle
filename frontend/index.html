@@ -45,7 +45,7 @@
     .site-name {
       font-size: 24px;
       font-weight: bold;
-      color: #d6336c;
+      color: #e75480; /* lighter pink */
     }
 
     nav ul {
@@ -60,7 +60,7 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #d6336c;
+      color: #e75480;
       font-weight: bold;
     }
 
@@ -89,8 +89,8 @@
 
     .hero img {
       width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
+      max-width: 700px; /* increased size */
+      border-radius: 15px;
     }
 
     .hero-content {
@@ -100,7 +100,7 @@
 
     .hero-content h1 {
       font-size: 36px;
-      color: #cc3366;
+      color: #e75480;
     }
 
     .hero-content p {
@@ -109,7 +109,7 @@
     }
 
     .start-btn {
-      background-color: #cc3366;
+      background-color: #e75480;
       color: white;
       padding: 10px 20px;
       border: none;
@@ -150,7 +150,7 @@
     .auth-section h2 {
       font-size: 28px;
       margin-bottom: 20px;
-      color: #d6336c;
+      color: #e75480;
     }
 
     .auth-section form {
@@ -170,7 +170,7 @@
 
     .auth-section button {
       padding: 12px;
-      background-color: #cc3366;
+      background-color: #e75480;
       color: white;
       border: none;
       border-radius: 5px;
@@ -218,7 +218,9 @@
       <div class="hero-content">
         <h1>Track Your Period & Manage Your Health</h1>
         <p>Get personalized insights about your menstrual cycle and wellness.</p>
-        <button class="start-btn">Start Tracking</button>
+        <a href="periodtracker.html">
+          <button class="start-btn">Start Tracking</button>
+        </a>
       </div>
     </section>
 
@@ -253,5 +255,22 @@
   <footer>
     <p>&copy; 2025 Never Miss Your Cycle. All rights reserved.</p>
   </footer>
+
+  <!-- ✅ Redirect Signup to Dashboard -->
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const password = this.password.value;
+      const confirmPassword = this.confirmPassword.value;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      // Simulate successful signup and redirect
+      window.location.href = 'dashboard.html';
+    });
+  </script>
 </body>
 </html>

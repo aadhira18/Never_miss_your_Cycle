@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cycle Calendar - Never Miss Your Cycle</title>
+  <link rel="icon" href="/image/logo.jpg" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe6eb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffd6e8;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #d6336c;
+    }
+
+    .calendar-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .month {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
+    }
+
+    .day-name, .day {
+      padding: 0.75rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .day-name {
+      font-weight: bold;
+      background-color: #ffc2d6;
+    }
+
+    .day {
+      background-color: #fff;
+    }
+
+    .period-day {
+      background-color: #f78fb3;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin: 2rem auto 0;
+      background-color: #d6336c;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      width: fit-content;
+    }
+
+    .back-button:hover {
+      background-color: #b42e58;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cycle Calendar</h1>
+  </header>
+
+  <div class="calendar-container">
+    <div class="month" id="monthYear"></div>
+    <div class="calendar" id="calendarGrid">
+      <!-- Calendar grid will be injected here -->
+    </div>
+  </div>
+
+  <a href="dashboard.html" class="back-button">⬅ Back to Dashboard</a>
+
+  <script>
+    const calendarGrid = document.getElementById("calendarGrid");
+    const monthYear = document.getElementById("monthYear");
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth(); // 0-indexed
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startDay = firstDay.getDay(); // 0 = Sunday
+
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    dayNames.forEach(day => {
+      const div = document.createElement("div");
+      div.className = "day-name";
+      div.innerText = day;
+      calendarGrid.appendChild(div);
+    });
+
+    // Add blank cells before the 1st of the month
+    for (let i = 0; i < startDay; i++) {
+      const div = document.createElement("div");
+      div.className = "day";
+      calendarGrid.appendChild(div);
+    }
+
+    // Example period prediction: start on 7th, lasts 5 days
+    const predictedStartDate = 7; 
+    const predictedLength = 5;
+
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+      const div = document.createElement("div");
+      div.className = "day";
+      div.innerText = i;
+
+      if (i >= predictedStartDate && i < predictedStartDate + predictedLength) {
+        div.classList.add("period-day");
+      }
+
+      calendarGrid.appendChild(div);
+    }
+
+    // Display month name
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    monthYear.innerText = `${monthNames[month]} ${year}`;
+  </script>
+
+</body>
+</html>

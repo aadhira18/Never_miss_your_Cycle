@@ -55,26 +55,22 @@
       padding: 1.5rem;
       border-radius: 10px;
       margin-top: 2rem;
+      text-align: center;
     }
 
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .contact-form button {
+    .email-button {
       background-color: #e75480;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .contact-form button:hover {
+    .email-button:hover {
       background-color: #d43f6e;
     }
 
@@ -153,22 +149,22 @@
         <div class="team-member">
           <img src="/image/mem1.jpg" alt="Team Member 1">
           <h4>AADHIRA RANJAN</h4>
-          <p> CEO </p>
+          <p>Developer and Tester/QA</p>
         </div>
         <div class="team-member">
-          <img src="/image/team2.jpg" alt="Team Member 2">
-          <h4>SHREYA </h4>
-          <p>CEO</p>
+          <img src="/image/mem2.jpg" alt="Team Member 2">
+          <h4>SHREYA</h4>
+          <p>Ideator and Researcher</p>
         </div>
         <div class="team-member">
           <img src="/image/mem3.jpg" alt="Team Member 3">
           <h4>AKANKSHA</h4>
-          <p>CEO</p>
+          <p>Designer and Project Manager</p>
         </div>
         <div class="team-member">
           <img src="/image/mem4.jpg" alt="Team Member 4">
           <h4>ANUSHKA</h4>
-          <p>CEO</p>
+          <p>Documenter and Researcher</p>
         </div>
       </div>
 
@@ -178,24 +174,14 @@
       </p>
       <div class="youtube-section">
         <strong>Watch & Learn:</strong>
-        <iframe src="https://www.youtube.com/embed/8MvuetYyLPs" allowfullscreen></iframe>
-        <p>More videos at <a href="https://www.youtube.com/@xyzchannel" target="_blank">@xyzchannel</a></p>
+        <iframe src="https://www.youtube.com/embed/ToLIii2wC4I?si=cQxHhvQZbXMHRt_e" allowfullscreen></iframe>
+        <p>More videos at <a href="https://www.worldvision.in" target="_blank">www.worldvision.in</a></p>
       </div>
 
       <h3>Contact Us</h3>
       <div class="contact-form">
-        <form action="#" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
+        <!-- Email button instead of form -->
+        <a href="mailto:aadhiraniet@gmail.com" class="email-button" title="Send email to Aadhira">Send us an email</a>
       </div>
 
       <div class="social-links">

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Period Cycle History</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe6eb;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #ffd6e8;
+      color: #333;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background-color: #fff0f5;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #d6336c;
+    }
+    .form-section {
+      margin-bottom: 2rem;
+      background-color: #fff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input[type="date"], input[type="text"] {
+      padding: 0.5rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #ffd6e8;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .back-button:hover {
+      background-color: #b42e58;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cycle History</h1>
+    <img src="image/logo.jpg" alt="Logo" />
+  </header>
+
+  <div class="container">
+    <section class="form-section">
+      <h2>Log Your Cycle</h2>
+      <form id="cycleForm">
+        <label>Start Date:
+          <input type="date" id="startDate" required>
+        </label>
+        <label>End Date:
+          <input type="date" id="endDate" required>
+        </label>
+        <label>Notes (optional):
+          <input type="text" id="notes" placeholder="e.g., Light flow, cramps">
+        </label>
+        <button type="submit" class="back-button">Add to History</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Your Logged Cycles</h2>
+      <table id="historyTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Duration (days)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Entries will appear here -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    // 👤 Current logged-in user (simulate login)
+    const currentUser = "aadhira";
+
+    const form = document.getElementById("cycleForm");
+    const tableBody = document.querySelector("#historyTable tbody");
+
+    let historyData = loadUserData();
+
+    function loadUserData() {
+      const allData = JSON.parse(localStorage.getItem("cycleHistory")) || {};
+      return allData[currentUser] || [];
+    }
+
+    function saveUserData() {
+      const allData = JSON.parse(localStorage.getItem("cycleHistory")) || {};
+      allData[currentUser] = historyData;
+      localStorage.setItem("cycleHistory", JSON.stringify(allData));
+    }
+
+    function calculateDuration(start, end) {
+      const sd = new Date(start);
+      const ed = new Date(end);
+      return Math.floor((ed - sd) / (1000 * 60 * 60 * 24)) + 1;
+    }
+
+    function renderTable() {
+      tableBody.innerHTML = "";
+      historyData.forEach((entry, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${entry.start}</td>
+          <td>${entry.end}</td>
+          <td>${entry.duration}</td>
+          <td>${entry.notes}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const startDate = document.getElementById("startDate").value;
+      const endDate = document.getElementById("endDate").value;
+      const notes = document.getElementById("notes").value;
+
+      if (new Date(startDate) > new Date(endDate)) {
+        alert("Start date must be before end date.");
+        return;
+      }
+
+      const duration = calculateDuration(startDate, endDate);
+      const newEntry = { start: startDate, end: endDate, duration, notes };
+
+      historyData.push(newEntry);
+      saveUserData();
+      renderTable();
+      form.reset();
+    });
+
+    // Load existing entries
+    renderTable();
+  </script>
+
+</body>
+</html>

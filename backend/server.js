@@ -19,10 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ MongoDB Connection
-// ✅ MongoDB Connection
-//Replace the below with your actual MongoDB Atlas connection string
+// Replace the below with your actual MongoDB Atlas connection string
 const mongoURI = "mongodb+srv://aadhira1:aadhira1@cluster0.lmcqh5u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
 // Connect to MongoDB Atlas
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
@@ -34,7 +32,6 @@ mongoose.connect(mongoURI, {
 .catch((error) => {
   console.error('Error connecting to MongoDB Atlas:', error);
 });
-
 
 // ✅ Static Frontend Files
 app.use(express.static(path.join(__dirname, '../frontend')));

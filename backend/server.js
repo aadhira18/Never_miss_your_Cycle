@@ -22,10 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 const mongoURI = "mongodb+srv://aadhira1:aadhira1@cluster0.lmcqh5u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Connect to MongoDB Atlas
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(mongoURI, 
+)
 .then(() => {
   console.log('Connected to MongoDB Atlas successfully');
 })

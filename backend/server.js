@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const authRoutes = require('./routes/authRoutes');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const donateRoutes = require('./routes/donateRoutes');
@@ -18,9 +19,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/periodTrackerDB')
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
+// ✅ MongoDB Connection
+//Replace the below with your actual MongoDB Atlas connection string
+const mongoURI = "mongodb+srv://aadhira1:aadhira1@cluster0.lmcqh5u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Connect to MongoDB Atlas
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Connected to MongoDB Atlas successfully');
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB Atlas:', error);
+});
 
 
 // ✅ Static Frontend Files
